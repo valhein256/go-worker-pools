@@ -21,11 +21,11 @@ type Item struct {
 
 func echoWorker(in, out chan *Item) {
 	for {
-		n := <-in
+		item := <-in
 
-		sleep()
+		item.name = fmt.Sprintf("%s-After-worker", item.name)
 
-		out <- n
+		out <- item
 	}
 }
 
@@ -55,7 +55,7 @@ func main() {
 	} else {
 		num = 3
 	}
-	print(num)
+	println(num)
 	in := make(chan *Item)
 	out := make(chan *Item)
 	for i := 1; i <= num; i++ {

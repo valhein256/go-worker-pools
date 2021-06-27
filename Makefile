@@ -2,6 +2,7 @@ SERVICE := go
 STAGE := stg
 PLATFORM := local
 WORKSPACE := /opt/go
+WORKERNUM :=
 APP := main.go
 
 .PHONY: build run devenv update clean
@@ -17,7 +18,7 @@ run:
 	@docker run \
 		-v ${PWD}:${WORKSPACE} \
 		--rm -it golang:1-buster \
-		go run ${WORKSPACE}/${APP}
+		go run ${WORKSPACE}/${APP} ${WORKERNUM}
 
 devenv:
 	@docker run \
