@@ -1,10 +1,9 @@
-# go-fanin-fanout
+# go-worker-pools
 
 ## run
 
 ```shell
-$ > make run APP=fanin/fanin.go
-$ > make run APP=fanout/fanout.go
+$ > make run
 ```
 
 ## build
